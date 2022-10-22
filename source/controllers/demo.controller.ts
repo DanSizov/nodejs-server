@@ -33,7 +33,6 @@ const getWithDelayValidated = async (req: Request, res: Response, next: NextFunc
         // return res.status(406).json({
         //     error: "Incorrect seconds parameter value"
         // });
-
         // Error reponse without a message
         return res.sendStatus(406);
     }

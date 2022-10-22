@@ -13,5 +13,4 @@ router.delete('/store/:id',middleware.verifyToken([Role.Administrator]), control
 
 router.get('/helloworld', controller.getHelloWorld)
 
-
 export default { router };
