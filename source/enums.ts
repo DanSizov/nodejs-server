@@ -5,7 +5,8 @@ export enum Status {
 
 export enum Role {
     Administrator = 1,
-    RegularUser = 2
+    RegularUser = 2,
+    UpperUser = 3
 }
 
 export enum AppError {

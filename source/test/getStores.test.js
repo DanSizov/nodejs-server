@@ -7,7 +7,7 @@ describe ('GET store', () => {
         .get('/stores')
 
         .then (function(res) {
-            expect(res).to.have.status(200)//.json
+            expect(res).to.have.status(200)
         })
         .catch(function(err) {
             throw err
@@ -15,8 +15,3 @@ describe ('GET store', () => {
         done()
         })
  })
-    
-        // .end((err, res) => {
-        //     res.should.have.status(200)
-        //     res.body.should.be.a('array')
-        //     res.body.length.should.be.executeQueryArrayResult()

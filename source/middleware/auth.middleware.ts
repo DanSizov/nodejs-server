@@ -18,7 +18,6 @@ const verifyToken = (roles: Role[]) => (req: Request, res: Response, next: NextF
     }
 
     try {
-        // 'Bearer ..............'
         token = token.substring("Bearer ".length);
         const decoded: string | JwtPayload = jwt.verify(token, TOKEN_SECRET);
         if (roles.indexOf((decoded as jwtBase).userData.roleId) === -1) {

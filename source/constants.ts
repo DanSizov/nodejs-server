@@ -19,6 +19,8 @@ export class Queries {
     public static employeeToStorePosition: string = "INSERT emp_relat_store (employee_id, store_id, employee_relat_id) VALUES (?, ?, ?)";
     public static deleteEmployeeById: string = "DELETE FROM employees WHERE id =?";
 
+    public static addNewRole: string = "INSERT role (role_name, create_date, update_date, create_user_id, update_user_id, status_id) VALUES (?, ?, ?, ?, ?, ?)";
+
     // SELECT * FROM white_board_type WHERE id =  50
     public static WhiteBoardTypeById: string = `SELECT * FROM white_board_type WHERE id = ? AND status_id = ?`;
     public static WhiteBoardTypeByTitle: string = "SELECT * FROM white_board_type WHERE white_board_type LIKE ?";
@@ -34,8 +36,6 @@ export class Queries {
 
 }
 
-// export const DB_CONNECTION_STRING: string = "server=.;Database=masa_school;Trusted_Connection=Yes;Driver={SQL Server Native Client 11.0}";
-//export const DB_CONNECTION_STRING: string = "server=.;Database=masa_school;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server}";
 export const NON_EXISTENT_ID: number = -1;
 export const TOKEN_SECRET: string = "b8dc29d7-7711-4cd4-b54a-e21bf25dd253";
 

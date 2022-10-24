@@ -62,3 +62,8 @@ export interface employee extends entityWithId {
     last_name: string;
     position: string
 }
+
+export interface newrole extends entityWithId {
+    role_name: string;
+
+}

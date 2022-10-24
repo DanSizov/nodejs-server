@@ -7,7 +7,6 @@ import { ErrorService } from "../services/error.service";
 export class SqlHelper {
     static sql: SqlClient = require("msnodesqlv8");
 
-    // FIXME: SQL injection for LIKE query
     public static executeQueryArrayResult<T>(errorService: ErrorService, query: string, ...params: (string | number)[]): Promise<T[]> {
         return new Promise<T[]>((resolve, reject) => {
             console.log(query, params);
@@ -55,7 +54,7 @@ export class SqlHelper {
                                         resolve(queryResult[0]);
                                         break;
                             
-                                    default: // In case more than a single result is returned
+                                    default:
                                         resolve(queryResult[0]);
                                         break;
                                 }
@@ -90,7 +89,6 @@ export class SqlHelper {
                     });
 
                     q.on('rowcount', (rowCount: number) => {
-                        // If not ignoring rows affected AND ALSO rows affected equals zero then
                         if (!ignoreNoRowsAffected && rowCount === 0) {
                             reject(errorService.getError(AppError.NoData));
                             return;

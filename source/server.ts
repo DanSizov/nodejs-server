@@ -8,6 +8,7 @@ import schoolRoutes from './routes/school.routes';
 import employeeRoutes from './routes/employee.routes';
 import authenticationRoutes from './routes/authentication.routes';
 import userRoutes from './routes/user.routes';
+import roleRoutes from './routes/role.routes';
 
 
 const router: Express = express();
@@ -40,6 +41,7 @@ router.use('/general/', storeRoutes.router);
 router.use('/general/', employeeRoutes.router);
 router.use('/auth/', authenticationRoutes.router);
 router.use('/user/', userRoutes.router);
+router.use('/role', roleRoutes.router)
 
 /** Error handling */
 router.use((req, res, next) => {

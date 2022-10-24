@@ -23,6 +23,7 @@ const getStores = async (req: Request, res: Response, next: NextFunction) => {
 }
 
 const getStoresById = async (req: Request, res: Response, next: NextFunction) => {
+    console.log("User data: ", (req as AuthenticatedRequest).userData);
     const numericParamOrError: number | systemError = RequestHelper.ParseNumericInput(errorService, req.params.id)
     if (typeof numericParamOrError === "number") {
         if (numericParamOrError > 0) {
@@ -41,6 +42,7 @@ const getStoresById = async (req: Request, res: Response, next: NextFunction) =>
 }
 
 const updateStoreById = async (req: Request, res:Response, next: NextFunction) => {
+    console.log("User data: ", (req as AuthenticatedRequest).userData);
     const numericParamOrError: number | systemError = RequestHelper.ParseNumericInput(errorService, req.params.id)
     if (typeof numericParamOrError === "number") {
         if (numericParamOrError > 0) {
@@ -67,6 +69,7 @@ const updateStoreById = async (req: Request, res:Response, next: NextFunction) =
 }
 
 const createNewStore = async (req: Request, res:Response, next: NextFunction) => {
+    console.log("User data: ", (req as AuthenticatedRequest).userData);
     const body: store = req.body;
 
     shopService.createNewStore({
@@ -83,6 +86,7 @@ const createNewStore = async (req: Request, res:Response, next: NextFunction) =>
 }
 
 const deleteStoreById = async (req: Request, res: Response, next: NextFunction) => {
+    console.log("User data: ", (req as AuthenticatedRequest).userData);
     const numericParamOrError: number | systemError = RequestHelper.ParseNumericInput(errorService, req.params.id)
     if (typeof numericParamOrError === "number") {
         if (numericParamOrError > 0) {

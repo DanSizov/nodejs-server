@@ -8,7 +8,7 @@ import { ErrorService } from '../services/error.service';
 import { UserService } from '../services/user.service';
 
 const errorService: ErrorService = new ErrorService();
-const userService: UserService = new UserService(errorService);
+const   userService: UserService = new UserService(errorService);
 
 const updateById = async (req: Request, res: Response, next: NextFunction) => {
     const numericParamOrError: number | systemError = RequestHelper.ParseNumericInput(errorService, req.params.id)
@@ -27,9 +27,6 @@ const updateById = async (req: Request, res: Response, next: NextFunction) => {
                 .catch((error: systemError) => {
                     return ResponseHelper.handleError(res, error);
                 });
-        }
-        else {
-            // TODO: Error handling
         }
     }
     else {
@@ -73,9 +70,6 @@ const deleteById = async (req: Request, res: Response, next: NextFunction) => {
                 .catch((error: systemError) => {
                     return ResponseHelper.handleError(res, error);
                 });
-        }
-        else {
-            // TODO: Error handling
         }
     }
     else {

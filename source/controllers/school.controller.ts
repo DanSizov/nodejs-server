@@ -34,9 +34,6 @@ const getBoardTypeById = async (req: Request, res: Response, next: NextFunction)
                     return ResponseHelper.handleError(res, error);
                 });
         }
-        else {
-            // TODO: Error handlin
-        }
     }
     else {
         return ResponseHelper.handleError(res, numericParamOrError);
@@ -59,9 +56,6 @@ const updateBoardTypeById = async (req: Request, res: Response, next: NextFuncti
                 .catch((error: systemError) => {
                     return ResponseHelper.handleError(res, error);
                 });
-        }
-        else {
-            // TODO: Error handling
         }
     }
     else {
@@ -96,16 +90,12 @@ const deleteBoardTypeById = async (req: Request, res: Response, next: NextFuncti
                     return ResponseHelper.handleError(res, error);
                 });
         }
-        else {
-            // TODO: Error handling
-        }
     }
     else {
         return ResponseHelper.handleError(res, numericParamOrError);
     }
 };
 
-// SQL injection made by sending the following as a parameter: <' OR 1=1 -- >
 const getBoardTypeByTitle = async (req: Request, res: Response, next: NextFunction) => {
     let title: string = req.params.title;
     
