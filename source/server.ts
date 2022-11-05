@@ -2,13 +2,13 @@
 import http from 'http';
 import express, { Express } from 'express';
 import morgan from 'morgan';
-import demoRoutes from './routes/demo.routes';
-import storeRoutes from './routes/store.routes';
-import schoolRoutes from './routes/school.routes';
-import employeeRoutes from './routes/employee.routes';
-import authenticationRoutes from './routes/authentication.routes';
-import userRoutes from './routes/user.routes';
-import roleRoutes from './routes/role.routes';
+// import demoRoutes from './routes/demo.routes';
+// import storeRoutes from './modules/store/store.routes';
+// import schoolRoutes from './modules/school/school.routes';
+// import employeeRoutes from './modules/employee/employee.routes';
+// import authenticationRoutes from './routes/authentication.routes';
+// //import userRoutes from './routes/user.routes';
+// import roleRoutes from './routes/role.routes';
 
 
 const router: Express = express();
@@ -35,13 +35,13 @@ router.use((req, res, next) => {
 });
 
 /** Routes */
-router.use('/demo/', demoRoutes.router);
-router.use('/general/', schoolRoutes.router);
-router.use('/general/', storeRoutes.router);
-router.use('/general/', employeeRoutes.router);
-router.use('/auth/', authenticationRoutes.router);
-router.use('/user/', userRoutes.router);
-router.use('/role', roleRoutes.router)
+// router.use('/demo/', demoRoutes.router);
+// router.use('/general/', schoolRoutes.router);
+// router.use('/general/', storeRoutes.router);
+// router.use('/general/', employeeRoutes.router);
+// router.use('/auth/', authenticationRoutes.router);
+// //router.use('/user/', userRoutes.router);
+// router.use('/role', roleRoutes.router)
 
 /** Error handling */
 router.use((req, res, next) => {

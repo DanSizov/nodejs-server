@@ -1,8 +1,10 @@
+import authenticationController from "./core/authentication/authentication.controller";
+
 export class SqlParameters {
     public static Id: string = "id";
 }
 
-export class Queries {
+export class    Queries {
     public static WhiteBoardTypes: string = "SELECT * FROM white_board_type WHERE status_id = ?";
     public static SelectIdentity: string = "SELECT SCOPE_IDENTITY() AS id;";
 
@@ -20,7 +22,14 @@ export class Queries {
     public static deleteEmployeeById: string = "DELETE FROM employees WHERE id =?";
 
     public static addNewRole: string = "INSERT role (role_name, create_date, update_date, create_user_id, update_user_id, status_id) VALUES (?, ?, ?, ?, ?, ?)";
+    
+    public static getIdFromStoredProc: string = "SELECT id FROM stores WHERE store_name = ? AND store_address = ?"
+    
+    public static getUsers: string = "SELECT * FROM [user]"
 
+    public static getRoleByStatusId: string = "SELECT * FROM role WHERE status_id = ?"
+    public static updateRoleById: string = "UPDATE role SET role_name = ?, update_date = ?, update_user_id = ? WHERE id = ?"
+    public static DeleteRoleById: string = "UPDATE role SET update_date = ?, update_user_id = ?, status_id = ? WHERE id = ? AND status_id = ?";
     // SELECT * FROM white_board_type WHERE id =  50
     public static WhiteBoardTypeById: string = `SELECT * FROM white_board_type WHERE id = ? AND status_id = ?`;
     public static WhiteBoardTypeByTitle: string = "SELECT * FROM white_board_type WHERE white_board_type LIKE ?";
@@ -29,6 +38,7 @@ export class Queries {
     public static DeleteWhiteBoardTypeById: string = "UPDATE white_board_type SET update_date = ?, update_user_id = ?, status_id = ? WHERE id = ? AND status_id = ?";
     
     public static GetUserByLogin: string = "SELECT id, password, role_id FROM [user] WHERE login = ?";
+    public static GetRolesByLogin: string = "SELECT [user].role_id FROM [user] INNER JOIN user_role ON [user].role_id = user_role.role_id WHERE login  = ?"
 
     public static UpdateUserById: string = "UPDATE [user] SET first_name = ?, last_name = ?, update_date = ?, update_user_id = ? WHERE id = ? AND status_id = ?";
     public static AddUser: string = "INSERT [user] (first_name, last_name, login, password, role_id, create_date, update_date, create_user_id, update_user_id, status_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -36,7 +46,9 @@ export class Queries {
 
 }
 
-export const NON_EXISTENT_ID: number = -1;
-export const TOKEN_SECRET: string = "b8dc29d7-7711-4cd4-b54a-e21bf25dd253";
+export class StoredProcedures {
+    public static getStoreById3StoredProc: string = "getStoreByIdThree";
+    public static createStoreByStoredProc: string = "update_store";
+}
 
-export const DB_CONNECTION_STRING_SHOP: string = "server=.;Database=Homework;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server}";
+export const NON_EXISTENT_ID: number = -1;

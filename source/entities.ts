@@ -63,7 +63,15 @@ export interface employee extends entityWithId {
     position: string
 }
 
-export interface newrole extends entityWithId {
-    role_name: string;
+export interface role extends entityWithId {
 
+    role_name: string;
 }
+
+export interface environment {
+    dbConnectionString: string
+    tokenSecret: string
+    logsFolder: string
+    serverPort: number
+}
+
